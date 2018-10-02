@@ -1,0 +1,11 @@
+.app-promotion-panel
+ {
+    display: flex;
+    background-color: #33445E;
+    height: 3%;
+    padding: 0.5%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
