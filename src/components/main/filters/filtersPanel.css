@@ -1,0 +1,32 @@
+.app-filters-panel
+ {
+    display: flex;
+    background-color: white;
+    height: 3%;
+    padding: 0.5%;
+    color: #C18536;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-bottom-color: #C18536;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+  }
+  .filters-panel
+ {
+    display: flex;
+    flex:2;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .filters-sort
+ {
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }

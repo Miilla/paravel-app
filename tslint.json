@@ -10,6 +10,7 @@
   "rules": {
     "max-classes-per-file":false,
     "object-literal-sort-keys": false,
+    "jsx-no-lambda":false,
     "ordered-imports": [true, {
       "import-sources-order": "any",
       "named-imports-order": "case-insensitive"

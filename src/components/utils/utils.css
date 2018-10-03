@@ -1,0 +1,42 @@
+
+
+.ddl-main {
+    display: flex;
+    color: #bb833c;
+    cursor: pointer;
+    margin-right: 20px;
+    font-family: 'Averta-Semibold';
+    justify-content: center;
+    align-items: center;
+}
+
+.ddl-list {
+    position: absolute;
+    background-color: white;
+    border-color: #bb833c;
+    border-width: 1px;
+    border-style: solid;
+    border-top-width: 0px;
+}
+
+.ddl-header {
+    padding:5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: 'row';
+}
+
+.ddl-header-title {
+    font-weight: bold;
+    margin-right:10px;
+}
+
+
+.ddl-image {
+    border: solid #bb833c;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
