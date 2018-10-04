@@ -8,6 +8,8 @@
     font-family: 'Averta-Semibold';
     justify-content: center;
     align-items: center;
+    outline:none;
+    background-color: white;
 }
 
 .ddl-list {
@@ -17,6 +19,15 @@
     border-width: 1px;
     border-style: solid;
     border-top-width: 0px;
+    justify-content: flex-start;
+    align-items:  flex-start;    
+    flex:1;
+    min-width: 120px;
+}
+
+.ddl-wrapper {
+    justify-content: center;
+    align-items: center
 }
 
 .ddl-header {
@@ -30,6 +41,15 @@
 .ddl-header-title {
     font-weight: bold;
     margin-right:10px;
+}
+
+.ddl-list-item {
+    flex:1;
+    width: 100%;
+    display: flex;
+    flex-direction: 'row';
+    cursor: pointer;
+    padding:10%;
 }
 
 

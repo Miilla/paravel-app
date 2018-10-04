@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './utils.css';
-
 interface IPropsType {
     items: Array<{ value: string, name: string }>,
     title: string,
@@ -8,7 +7,7 @@ interface IPropsType {
 }
 
 interface IStateType {
-    items: Array<{ value: string, name: string }>;
+    items: Array<{ value: string, name: string, isSelected: boolean }>;
     title: string,
     listOpen: boolean,
 }
@@ -31,9 +30,14 @@ class DropDownList extends React.Component<IPropsType, IStateType> {
         return ddlItems;
     }
 
-    public toggleItem(item: string, value: string): void {
+    public toggleItem(value: string): void {
         const ddlItems = this.state.items.slice() as Array<{ value: string, name: string, isSelected: boolean }>;
-        // ddlItems = ddlItems.find(item=>item.value==item.value )
+
+        ddlItems.forEach(element => {
+            if (element.value === value) {
+                element.isSelected = !element.isSelected;
+            }
+        });
         this.setState({ items: ddlItems })
     }
 
@@ -43,22 +47,25 @@ class DropDownList extends React.Component<IPropsType, IStateType> {
         }))
     }
 
-
-
     public render() {
         return (
-            <div className="ddl-main">
+            <div className="ddl-main" tabIndex={0} onBlur={() => { this.setState({ listOpen: false }) }}>
                 <div className="ddl-wrapper">
                     <div className="ddl-header" onClick={() => this.toggleList()}>
                         <div className="ddl-header-title">{this.state.title}</div>
                         <span className="ddl-image" />
                     </div>
                     {this.state.listOpen &&
-                        <ul className="ddl-list">
-                            {this.state.items.map((item) => {
-                                return (<li className="ddl-list-item" key={item.value} onClick={() => this.toggleItem(item.value, item.name)}>{item.name}</li>)
+                        <div className="ddl-list">
+                            {this.state.items && this.state.items.map((item) => {
+                                return (
+                                    <div key={item.value} className="ddl-list-item" onMouseDown={() => this.toggleItem(item.value)}  >
+                                        <input type="checkbox" checked={item.isSelected} />
+                                        <div>{item.name}</div>
+                                    </div>
+                                )
                             })}
-                        </ul>
+                        </div>
                     }
                 </div>
             </div>
