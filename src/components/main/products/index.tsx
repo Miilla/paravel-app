@@ -1,25 +1,26 @@
 import * as React from 'react';
 import './index.css';
 import products from '../../../mockup/products';
-import { Product } from '../../../models/Product';
+import { getProducts } from '../../../actions';
+import { connect } from 'react-redux';
 
-interface IStateType {
-  data: Product[],
+
+const mapStateToProps = (state: any) => {
+  return {
+    data: getProducts(products, state.colors.colors, state.categories.categories)
+  };
 }
 
-class ProductsList extends React.Component<any, IStateType> {
+class ProductsList extends React.Component<any, any> {
 
   constructor(props: any) {
     super(props);
-    this.state = {
-      data: products,
-    }
   }
 
   public render() {
     return (
       <div className="product-list">
-        {this.state.data.map((product, index) => {
+        {this.props.data.map((product: any, index: any) => {
           return <ProductPanel key={index} product={product} />
         })}
       </div>
@@ -30,6 +31,16 @@ class ProductsList extends React.Component<any, IStateType> {
 const path = 'images/';
 
 class ProductPanel extends React.Component<any, any> {
+
+  public static getDerivedStateFromProps(props: any, state: any) {
+    if (props.product !== state.product) {
+      return {
+        product: props.product
+      }
+    }
+    return null;
+  }
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -55,7 +66,7 @@ class ProductPanel extends React.Component<any, any> {
           {this.state.product.description}
         </div>
         <div className="product-price">
-          ${this.state.product.price}
+          ${this.state.product.price[this.state.colorIndex]}
         </div>
         <div className="product-colors">
           {this.state.product.color.map((color: any, index: number) => <Color key={index} color={color} isSelected={(index === this.state.colorIndex)} onColorChange={() => this._onColorChange(index)} />
@@ -75,6 +86,16 @@ const colors = new Map([
 ]);
 
 class Color extends React.Component<any, any> {
+
+  public static getDerivedStateFromProps(props: any, state: any) {
+    if (props.color !== state.color) {
+      return {
+        color: props.color
+      }
+    }
+    return null;
+  }
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -94,4 +115,4 @@ class Color extends React.Component<any, any> {
   }
 }
 
-export default ProductsList;
+export default connect(mapStateToProps)(ProductsList);

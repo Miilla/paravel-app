@@ -4,6 +4,6 @@ export class Product {
     category: string;
     color: string[];
     description: string;
-    price: number;
+    price: number[];
     src: string;
 }

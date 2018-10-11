@@ -1,9 +1,12 @@
-import { Categories } from '../actions'
+// import { Categories } from '../actions'
 
-const categories = (state = Categories.ALL, action: any) => {
+const categories = (state = [], action: any) => {
     switch (action.type) {
         case 'CHANGE_CATEGORY':
-            return action.category
+            return {
+                ...state,
+                categories: action.categories
+            }
         default:
             return state
     }

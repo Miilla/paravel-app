@@ -2,7 +2,7 @@
 export const categories=[
     {
         name:'Bags',
-        value:'BAGS'
+        value:'BAG'
     },    
     {
         name:'Accessories',

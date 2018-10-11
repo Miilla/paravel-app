@@ -12,9 +12,15 @@ interface IStateType {
   categoriesS: []
 }
 
-const mapDispatchToProps = (dispatch:any, ownProps:any) => ({
-  onCategoryChange: (categoriesS:string[]) => dispatch(changeCategory(categoriesS)),
-  onColorChange: (colorS:string[]) => dispatch(changeProductColor(colorS)),
+const mapStateToProps = (state: any) => {
+  return {
+    filters: state.filters
+  }
+}
+
+const mapDispatchToProps = (dispatch: any, ownProps: any) => ({
+  onCategoryChange: (categoriesS: string[]) => dispatch(changeCategory(categoriesS)),
+  onColorChange: (colorS: string[]) => dispatch(changeProductColor(colorS)),
 })
 
 class FiltersPanel extends React.Component<any, IStateType> {
@@ -23,13 +29,19 @@ class FiltersPanel extends React.Component<any, IStateType> {
   }
 
   public changeCategories = (categoriesS: string[]) => {
-    this.state.onCategoryChange(categoriesS);
-    // alert(JSON.stringify(items))
+    const cate: string[] = [];
+    categoriesS.forEach((element: any) => {
+      cate.push(element.value)
+    });
+    this.props.onCategoryChange(cate);
   };
 
   public changeColor = (colorS: string[]) => {
-    this.state.onColorChange(colorS);
-    // alert(JSON.stringify(items))
+    const colo: string[]=[];
+    colorS.forEach((element: any) => {
+      colo.push(element.value)
+    });
+    this.props.onColorChange(colo);
   };
 
   public render() {
@@ -37,8 +49,8 @@ class FiltersPanel extends React.Component<any, IStateType> {
       <div className="app-filters-panel">
         <div className="filters-panel">
           <span>Filter:</span>
-          <DropDownList items={categories} title={'CATEGORY'} toggleItem={(items:any) => { this.changeCategories(items);  }} />
-          <DropDownList items={colors} title={'COLOR'} toggleItem={(items:any) => { this.changeColor(items) }} />
+          <DropDownList items={categories} title={'CATEGORY'} toggleItem={(items: any) => { this.changeCategories(items); }} />
+          <DropDownList items={colors} title={'COLOR'} toggleItem={(items: any) => { this.changeColor(items) }} />
         </div>
         <div className="filters-sort">
           SORT BY
@@ -49,5 +61,7 @@ class FiltersPanel extends React.Component<any, IStateType> {
 }
 
 export default connect(
-  // mapStateToProps,
-  mapDispatchToProps)(FiltersPanel);
+
+  mapStateToProps,
+  mapDispatchToProps
+)(FiltersPanel);

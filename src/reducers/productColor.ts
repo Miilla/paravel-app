@@ -1,12 +1,15 @@
-import { ProductColors } from '../actions'
+// import { ProductColors } from '../actions'
 
-const productColor = (state = ProductColors.BLACK_WHITE, action: any) => {
+const colors = (state =[], action: any) => {
     switch (action.type) {
         case 'CHANGE_PRODUCT_COLOR':
-            return action.color
+            return {                
+                ...state,
+                colors: action.colors
+            }
         default:
             return state
     }
 }
 
-export default productColor
+export default colors

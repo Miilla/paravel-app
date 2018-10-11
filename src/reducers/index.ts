@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import productColor from './productColor'
+import colors from './productColor'
 import categories from './categories'
 
 export default combineReducers({
-    productColor,
+    colors,
     categories
 })

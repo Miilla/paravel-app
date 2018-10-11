@@ -12,7 +12,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <PromotionPanel />
-        <FiltersPanel a='a'/>
+        <FiltersPanel/>
         <ProductsList />
       </div>
     );

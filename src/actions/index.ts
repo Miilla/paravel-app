@@ -1,7 +1,8 @@
+import { Product } from "../models/Product";
 
-export const changeProductColor = (color: string[]) => ({
+export const changeProductColor = (colors: string[]) => ({
     type: 'CHANGE_PRODUCT_COLOR',
-    color
+    colors
 })
 
 export const ProductColors = {
@@ -12,9 +13,9 @@ export const ProductColors = {
     BLUE_WHITE: 'BLUE_WHITE'
 }
 
-export const changeCategory = (category: string[]) => ({
+export const changeCategory = (categories: string[]) => ({
     type: 'CHANGE_CATEGORY',
-    category
+    categories
 })
 
 export const Categories = {
@@ -23,4 +24,26 @@ export const Categories = {
     ACCESSORIES: 'ACCESSORIES',
     LUGGAGE: 'LUGGAGE',
     KITS: 'KITS'
+}
+
+export const getProducts = (products: Product[], colors: string[] = [], categories: string[] = []) => {
+    // return products;
+    // alert(JSON.stringify(categories));
+    const pro = products.filter(product => {
+        return (
+            (
+                colors.length === 0 || 
+                (colors !== []
+                &&
+                product.color.find((color) => colors.indexOf(color) > -1))
+            )
+            &&
+            (
+                categories.length === 0 ||
+                categories.indexOf(product.category) > -1
+            )
+        )
+    });
+    // alert(JSON.stringify(pro));
+    return pro;
 }

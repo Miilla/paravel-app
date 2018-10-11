@@ -9,15 +9,15 @@ export const products: Product[] = [
         category: Categories.BAG,
         color: [ProductColors.BLACK_WHITE],
         description: 'just just',
-        price: 100,
+        price: [100],
         src: '1.png'
     },
     {
         name: 'The Ultralight Main Line',
-        category: Categories.BAG,
+        category: Categories.ACCESSORIES,
         color: [ProductColors.BLACK_WHITE, ProductColors.YELLOW_WHITE, ProductColors.BLUE_WHITE],
         description: 'grab and go',
-        price: 50,
+        price: [22,40,55],
         src: '2.png'
     },
     {
@@ -25,7 +25,7 @@ export const products: Product[] = [
         category: Categories.LUGGAGE,
         color: [ProductColors.BLACK_WHITE, ProductColors.RED_WHITE],
         description: 'just grab',
-        price: 100,
+        price: [100,40],
         src: '3.png'
     },
     {
@@ -33,7 +33,7 @@ export const products: Product[] = [
         category: Categories.LUGGAGE,
         color: [ProductColors.BLACK_WHITE, ProductColors.YELLOW_WHITE, ProductColors.RED_WHITE],
         description: 'just go',
-        price: 30,
+        price: [30,40,50],
         src: '4.png'
     },
     {
@@ -41,7 +41,7 @@ export const products: Product[] = [
         category: Categories.KITS,
         color: [ProductColors.BLACK_WHITE, ProductColors.RED_WHITE],
         description: 'just and',
-        price: 20,
+        price: [20,55],
         src: '5.png'
     },
     {
@@ -49,7 +49,7 @@ export const products: Product[] = [
         category: Categories.KITS,
         color: [ProductColors.BLUE_WHITE, ProductColors.BLACK_WHITE],
         description: 'nothing',
-        price: 99,
+        price: [99,89],
         src: '2.png'
     }
 ]

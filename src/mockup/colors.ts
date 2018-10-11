@@ -4,14 +4,14 @@ import { Color } from '../models/Color';
 export const colors: Color[] = [
     {
         name: 'Blue',
-        value: 'blue'
+        value: 'BLUE_WHITE'
     },
     {
         name: 'Red',
-        value: 'red'
+        value: 'RED_WHITE'
     },
     {
         name: 'Yellow',
-        value: 'yellow'
+        value: 'YELLOW_WHITE'
     }
 ]
