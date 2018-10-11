@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Header from './header/Header';
 import PromotionPanel from './promotionPanel/promotionPanel';
 import FiltersPanel from './main/filters/filtersPanel';
+import ProductsList from './main/products';
 
 class App extends React.Component {
   public render() {
@@ -11,10 +12,8 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <PromotionPanel />
-        <FiltersPanel/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <FiltersPanel a='a'/>
+        <ProductsList />
       </div>
     );
   }

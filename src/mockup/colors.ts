@@ -1,17 +1,17 @@
-// import { Color } from '../models/Color';
+import { Color } from '../models/Color';
 
 
-export const colors=[
+export const colors: Color[] = [
     {
-        name:'Blue',
-        value:'blue'
-    },    
-    {
-        name:'Red',
-        value:'red'
+        name: 'Blue',
+        value: 'blue'
     },
     {
-        name:'Yellow',
-        value:'yellow'
+        name: 'Red',
+        value: 'red'
+    },
+    {
+        name: 'Yellow',
+        value: 'yellow'
     }
 ]

@@ -3,7 +3,7 @@ import './utils.css';
 interface IPropsType {
     items: Array<{ value: string, name: string }>,
     title: string,
-    toggleItem: (value: string, name: string) => void
+    toggleItem: (items: any) => void
 }
 
 interface IStateType {
@@ -38,7 +38,8 @@ class DropDownList extends React.Component<IPropsType, IStateType> {
                 element.isSelected = !element.isSelected;
             }
         });
-        this.setState({ items: ddlItems })
+        this.setState({ items: ddlItems }, ()=>{this.props.toggleItem(ddlItems.filter(item =>(item.isSelected===true)))})
+
     }
 
     public toggleList() {

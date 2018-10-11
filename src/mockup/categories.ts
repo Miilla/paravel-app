@@ -2,14 +2,14 @@
 export const categories=[
     {
         name:'Bags',
-        value:'bags'
+        value:'BAGS'
     },    
     {
         name:'Accessories',
-        value:'accessories'
+        value:'ACCESSORIES'
     },
     {
         name:'Luggage',
-        value:'luggage'
+        value:'LUGGAGE'
     }
 ]

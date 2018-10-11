@@ -2,16 +2,43 @@ import * as React from 'react';
 import './filtersPanel.css';
 import DropDownList from '../../utils/DropDownList';
 import { colors } from '../../../mockup/colors';
+import { connect } from 'react-redux';
 import { categories } from '../../../mockup/categories';
+import { changeCategory, changeProductColor } from '../../../actions';
 
-class FiltersPanel extends React.Component {
+interface IStateType {
+  onCategoryChange: (categoriesS: string[]) => void;
+  onColorChange: (colorS: string[]) => void;
+  categoriesS: []
+}
+
+const mapDispatchToProps = (dispatch:any, ownProps:any) => ({
+  onCategoryChange: (categoriesS:string[]) => dispatch(changeCategory(categoriesS)),
+  onColorChange: (colorS:string[]) => dispatch(changeProductColor(colorS)),
+})
+
+class FiltersPanel extends React.Component<any, IStateType> {
+  constructor(props: any) {
+    super(props);
+  }
+
+  public changeCategories = (categoriesS: string[]) => {
+    this.state.onCategoryChange(categoriesS);
+    // alert(JSON.stringify(items))
+  };
+
+  public changeColor = (colorS: string[]) => {
+    this.state.onColorChange(colorS);
+    // alert(JSON.stringify(items))
+  };
+
   public render() {
     return (
       <div className="app-filters-panel">
         <div className="filters-panel">
           <span>Filter:</span>
-          <DropDownList items={categories} title={'CATEGORY'} toggleItem={(value: string, name: string) => { alert(name + value) }} />
-          <DropDownList items={colors} title={'COLOR'} toggleItem={(value: string, name: string) => { alert(name + value) }} />
+          <DropDownList items={categories} title={'CATEGORY'} toggleItem={(items:any) => { this.changeCategories(items);  }} />
+          <DropDownList items={colors} title={'COLOR'} toggleItem={(items:any) => { this.changeColor(items) }} />
         </div>
         <div className="filters-sort">
           SORT BY
@@ -21,4 +48,6 @@ class FiltersPanel extends React.Component {
   }
 }
 
-export default FiltersPanel;
+export default connect(
+  // mapStateToProps,
+  mapDispatchToProps)(FiltersPanel);

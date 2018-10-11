@@ -1,5 +1,5 @@
 
-export class Color  {
+export class Category {
     name: string;
     value: string;
 }
