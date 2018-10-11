@@ -35,7 +35,8 @@ class ProductPanel extends React.Component<any, any> {
   public static getDerivedStateFromProps(props: any, state: any) {
     if (props.product !== state.product) {
       return {
-        product: props.product
+        product: props.product,
+        colorIndex:0
       }
     }
     return null;
